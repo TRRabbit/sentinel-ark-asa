@@ -40,6 +40,43 @@ timers) are free. The premium modules (raid alerts, leaderboards, live map,
 tickets, anti-cheat, dino arsenal, analytics, battle pass) are unlocked with a
 license key, one module at a time.
 
+### The modules
+
+Turn each module on or off in `config.exe`. A module marked "needs a mod" only
+uses it for its live data — see "Server mods" below for the links.
+
+Free:
+
+- **Configuration panel** (`/config`): edit every bot setting from Discord.
+- **Health**: heartbeat, "new version available" notice, and operator alerts.
+- **Variables**: custom text shortcuts reused across your messages and panels.
+- **Account linking**: links a Discord member to their in-game player. Works
+  better with Awesome Admin Tools (it then sees offline players too).
+- **Cluster tribes**: keeps each tribe's identity consistent across a
+  multi-server cluster.
+- **Server status**: a live status panel, and an optional voice-channel player
+  counter.
+- **RCON console**: run the admin commands you approved on a server, from Discord.
+- **Timers**: scheduled, recurring messages and announcements.
+
+Premium (license key):
+
+- **Raid alerts**: detects raids from the game log and reports them, with a raid
+  score. (Needs the server launch flags below.)
+- **Leaderboards**: player and tribe rankings (kills, tames, play-time, and
+  more), posted and refreshed automatically.
+- **Live map**: a private web map of your server. **Needs two mods**: Awesome
+  Admin Tools (to show bases) and Livemap / HTTPLocation (for live player
+  positions). The map background and dinos come from the save file, no mod
+  needed.
+- **Tickets**: a support-ticket system with panels and transcripts (optional AI
+  help when you provide your own key).
+- **Anti-cheat**: detectors and alerts for suspicious activity on your server.
+- **Dino arsenal**: an overview of notable creatures across the cluster (read
+  from the save file).
+- **Analytics**: activity and population statistics for your server.
+- **Battle Pass**: seasonal progression with in-game and Discord rewards.
+
 ### Requirements
 
 - A Windows machine kept online (the bot watches your server continuously).
@@ -135,13 +172,17 @@ Instead of entering the key in `config.exe`, you can add it to the `.env` file:
 
 Some premium features read extra data from your server through two free mods:
 
-- Awesome Admin Tools (CurseForge mod ID 941450) feeds the live-map bases and the
-  player identity bridge (nicknames linked to accounts, including offline
-  players). Add `941450` to your server's `-mods=` argument and restart. The bot
-  reads its cache over the same FTP access, read-only.
-- Livemap / HTTPLocation (CurseForge mod ID 934290) sends real-time player
-  positions. Add `934290` to `-mods=`, then in `GameUserSettings.ini` add an
-  `[HTTPLocation]` block with `privateid` matching your bot's livemap secret and
+- **Awesome Admin Tools** — CurseForge ID `941450`
+  (<https://www.curseforge.com/ark-survival-ascended/mods/awesome-admin-tools>).
+  Feeds the **Live map** bases and the player identity used by account linking,
+  leaderboards, dino arsenal, battle pass and status (it sees offline players and
+  exact levels). Add `941450` to your server's `-mods=` argument and restart. The
+  bot reads its cache over the same FTP access, read-only.
+- **Livemap / HTTPLocation** — CurseForge ID `934290`
+  (<https://www.curseforge.com/ark-survival-ascended/mods/livemap>). Sends
+  real-time player positions for the **Live map**. Add `934290` to `-mods=`, then
+  in `GameUserSettings.ini` add an `[HTTPLocation]` block with `privateid`
+  matching your bot's livemap secret and
   `url` pointing at the bot. Restart the server.
 
 ### Importing an already-running server
@@ -218,6 +259,49 @@ serveur, console RCON, minuteurs) sont gratuits. Les modules premium (alertes de
 raid, classements, carte en direct, tickets, anti-triche, arsenal de dinos,
 analytique, battle pass) se debloquent avec une cle de licence, un module a la
 fois.
+
+### Les modules
+
+Activez ou desactivez chaque module dans `config.exe`. Un module marque
+« a besoin d'un mod » ne s'en sert que pour ses donnees en direct — voir la
+section « Mods serveur » plus bas pour les liens.
+
+Gratuits :
+
+- **Panneau de configuration** (`/config`) : reglez tout le bot depuis Discord.
+- **Sante** : battement de coeur, avis « nouvelle version disponible » et alertes
+  a l'operateur.
+- **Variables** : des raccourcis de texte personnalises reutilisables dans vos
+  messages et panneaux.
+- **Liaison des comptes** : relie un membre Discord a son joueur en jeu.
+  Fonctionne mieux avec Awesome Admin Tools (il voit alors aussi les joueurs
+  hors-ligne).
+- **Tribus du cluster** : garde l'identite de chaque tribu coherente sur un
+  reseau de plusieurs serveurs.
+- **Statut du serveur** : un panneau de statut en direct, et un compteur de
+  joueurs en salon vocal (optionnel).
+- **Console RCON** : lancez depuis Discord les commandes admin que vous avez
+  approuvees.
+- **Minuteurs** : des messages et annonces recurrents programmes.
+
+Premium (cle de licence) :
+
+- **Alertes de raid** : detecte les raids dans le journal de jeu et les signale,
+  avec une note de raid. (Necessite les options de lancement du serveur, plus bas.)
+- **Classements** : classements joueurs et tribus (kills, tames, temps de jeu,
+  etc.), postes et rafraichis automatiquement.
+- **Carte en direct** : une carte web privee de votre serveur. **Necessite deux
+  mods** : Awesome Admin Tools (pour afficher les bases) et Livemap / HTTPLocation
+  (pour les positions des joueurs en direct). Le fond de carte et les dinos
+  viennent de la sauvegarde, sans mod.
+- **Tickets** : un systeme de tickets de support avec panneaux et transcriptions
+  (aide par IA optionnelle si vous fournissez votre propre cle).
+- **Anti-triche** : detecteurs et alertes sur les activites suspectes.
+- **Arsenal de dinos** : une vue des creatures notables du cluster (lue dans la
+  sauvegarde).
+- **Analytique** : statistiques d'activite et de population de votre serveur.
+- **Battle Pass** : progression par saisons avec des recompenses en jeu et sur
+  Discord.
 
 ### Pre-requis
 
@@ -323,14 +407,19 @@ sont definies.
 Certaines fonctions premium lisent des donnees supplementaires sur votre serveur
 via deux mods gratuits :
 
-- Awesome Admin Tools (mod CurseForge 941450) alimente les bases de la carte en
-  direct et le pont d'identite joueur (pseudos relies aux comptes, y compris les
-  joueurs hors-ligne). Ajoutez `941450` a l'argument `-mods=` du serveur puis
-  redemarrez. Le bot lit son cache via le meme acces FTP, en lecture seule.
-- Livemap / HTTPLocation (mod CurseForge 934290) envoie les positions des joueurs
-  en temps reel. Ajoutez `934290` a `-mods=`, puis dans `GameUserSettings.ini`
-  ajoutez un bloc `[HTTPLocation]` avec `privateid` egal au secret livemap du bot
-  et `url` pointant vers le bot. Redemarrez le serveur.
+- **Awesome Admin Tools** — ID CurseForge `941450`
+  (<https://www.curseforge.com/ark-survival-ascended/mods/awesome-admin-tools>).
+  Alimente les bases de la **Carte en direct** et l'identite des joueurs utilisee
+  par la liaison des comptes, les classements, l'arsenal de dinos, le battle pass
+  et le statut (il voit les joueurs hors-ligne et leurs niveaux exacts). Ajoutez
+  `941450` a l'argument `-mods=` du serveur puis redemarrez. Le bot lit son cache
+  via le meme acces FTP, en lecture seule.
+- **Livemap / HTTPLocation** — ID CurseForge `934290`
+  (<https://www.curseforge.com/ark-survival-ascended/mods/livemap>). Envoie les
+  positions des joueurs en temps reel pour la **Carte en direct**. Ajoutez
+  `934290` a `-mods=`, puis dans `GameUserSettings.ini` ajoutez un bloc
+  `[HTTPLocation]` avec `privateid` egal au secret livemap du bot et `url`
+  pointant vers le bot. Redemarrez le serveur.
 
 ### Importer un serveur deja lance
 
